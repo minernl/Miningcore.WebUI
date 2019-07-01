@@ -1,0 +1,47 @@
+<div class="card">
+  <div class="card-header bg-teal-gradient">
+    <h4 class="card-title">Miner Configuration</h4>
+    <p class="card-category">
+      This is the basic guide how to setup your miner to this pool.
+    </p>
+  </div>
+  <div class="card-body">
+    <div class="typo-line">
+      <h2>Getting started</h2>
+      <p>
+        Download and config your miner for this pool using these addresses and ports.
+      </p>
+      <hr />
+      <h3><i class="ti-plug"></i>&nbsp;Stratum Configuration</h3>
+      <div style="overflow:auto">
+         {{ stratum }}
+      </div>
+      <p>Where:</p>
+              <ul>
+                <li>YOUR_WALLET_ADDRESS - your valid coin address.</li>
+				<li>WORKERNAME - an optional workername can be appended to your address separated by a dot character.</li>
+				<li>PASSWORD - use x or leave it blank.</li>
+				<li>STATIC DIFFICULTY - to mine with a static (fixed)
+				    difficulty simply use&nbsp;<code>d=xxx</code>&nbsp;as password in your
+					miner configuration where&nbsp;<code>xxx</code>&nbsp;denotes your
+					preferred difficulty.
+				</li>
+			  </ul>
+      <p>&nbsp;</p>
+      <p>
+        
+      </p>
+      <hr />
+      
+      <div class="well well-lg"><span>For AMD cards in a Windows system, make sure you add this at the top of your .bat file:</span>
+              <pre class="pre-help">
+setx GPU_FORCE_64BIT_PTR 0
+setx GPU_MAX_HEAP_SIZE 100
+setx GPU_USE_SYNC_OBJECTS 1
+setx GPU_MAX_ALLOC_PERCENT 100
+setx GPU_SINGLE_ALLOC_PERCENT 100
+            </pre>
+            </div>
+          </div>
+    </div>
+</div>
