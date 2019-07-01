@@ -1,7 +1,7 @@
 # Miningcore.WebUI
 <h4>Miningcore WebUI for the Coinfoundry Miningcore Pool</h4>
 
-Miningcore is one of the best open source minning pools ther are.
+Miningcore is one of the best open source minning pools there are.
 To make this pool look good, you have to have a nice and fast user interface.
 Miningcore.WebUI does that for you and it open source. so you can change it as you want. 
 
