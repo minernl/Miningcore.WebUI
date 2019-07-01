@@ -12,15 +12,13 @@ This Miningcore WebUI need a working Miningcore Pool API
   
 You should now see the site and live pool API info
 
-
   
-Website is visible, but no live data is shown
+<b>Website is visible, but no live data is shown</b></br>
+Live info data is retrieved from the miningcore pool API.</br>
+The WebUI website default looks at the domain-name/api.</br>
+If this is not you api location, you need to edit the miningcore.js file.</br>
 
-Live info data is retrieved from the miningcore pool API.
-The WebUI website default looks at the domain-name/api.
-If this is not you api location, you need to edit the miningcore.js file.
-
-Chang API location
+Chang API location</br>
 - open the WebUI config file in you editor: js/miningcore.js
 - change the following:
 
@@ -37,8 +35,7 @@ var stratumAddress = "stratum+tcp://domain-name.com:";</br>
 
 
 
-<b>Live Miningcore.WebUI</b>
-
+<b>Live Miningcore.WebUI</b></br>
 My pool website can be found at https://miningcore.eu
 
 
@@ -50,6 +47,13 @@ let me know and we will see what we can do.
 <b>Roadmap:</b></br>
 - add multiple single miningcore pool servers in one website
 - add more color skins out off the box
+- add last time block found (sec / min / hours)
+- add blockchain height (number)
+- add current round variance  (in %)
+- add pool fee (in %)
+- add block maturity (number blocks)
+- add payment frequency  (hours)
+- add payment threshold
 
 
 <b>Changes:</b></br>
