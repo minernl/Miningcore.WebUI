@@ -1,5 +1,5 @@
 # Miningcore.WebUI
-Miningcore WebUI for the Coinfoundry Miningcore Pool
+<h4>Miningcore WebUI for the Coinfoundry Miningcore Pool</h4>
 
 Miningcore is one of the best open source minning pools ther are.
 To make this pool look good, you have to have a nice and fast user interface.
@@ -24,33 +24,35 @@ Chang API location
 - open the WebUI config file in you editor: js/miningcore.js
 - change the following:
 
-var WebURL         = window.location.protocol + "//" + window.location.hostname + "/";  
-var API            = WebURL + "api/";   			
-var stratumAddress = "stratum+tcp://" + window.location.hostname + ":";                 
-
-it should be like this: 
-(replace domain-name.com is you own domain name)
-var WebURL         = https://domain-name.com/
-var API            = https://domain-name.com/api/
-var stratumAddress = "stratum+tcp://domain-name.com:";
+var WebURL         = window.location.protocol + "//" + window.location.hostname + "/";</br>
+var API            = WebURL + "api/";</br>
+var stratumAddress = "stratum+tcp://" + window.location.hostname + ":";</br>
 
 
+it should be like this:</br>
+(replace domain-name.com is you own domain name)</br>
+var WebURL = "https://domain-name.com/";</br>
+var API = "https://domain-name.com/api/";</br>
+var stratumAddress = "stratum+tcp://domain-name.com:";</br>
 
-Live Miningcore.WebUI
+
+
+<b>Live Miningcore.WebUI</b>
+
 My pool website can be found at https://miningcore.eu
 
 
-Suggestion
+<b>Suggestion</b></br>
 Do you have any idea what to add more to the website, or you found a bug
 let me know and we will see what we can do.
 
 
-Roadmap:
+<b>Roadmap:</b></br>
 - add multiple single miningcore pool servers in one website
 - add more color skins out off the box
 
 
-Changes:
+<b>Changes:</b></br>
 Version 1.0  (1 jul 2019)
 - simple and fast WebUI (html and javascript)
 - one file website displays selected info block and hides the rest
