@@ -31,7 +31,7 @@ var stratumAddress = "stratum+tcp://" + window.location.hostname + ":";
 it should be like this: 
 (replace domain-name.com is you own domain name)
 var WebURL         = https://domain-name.com/
-var API			   = https://domain-name.com/api/
+var API            = https://domain-name.com/api/
 var stratumAddress = "stratum+tcp://domain-name.com:";
 
 
@@ -48,7 +48,6 @@ let me know and we will see what we can do.
 Roadmap:
 - add multiple single miningcore pool servers in one website
 - add more color skins out off the box
-
 
 
 Changes:
