@@ -3,7 +3,7 @@
   
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <meta name="msapplication-TileImage" content="img/pool-icon.png">
   
@@ -18,13 +18,11 @@
 	Make sure you apply the skin class to the body tag so the changes take effect. 
   -->
 
- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
+  
+  <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">-->
   <link rel="stylesheet" href="css/bootstrap.css">
-  <!--<link rel="stylesheet" href="css/font-awesome.css">-->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  <!--<link rel="stylesheet" href="css/font-awesome.css">-->
   <link rel="stylesheet" href="css/skins/skin-purple.css">
   <link rel="stylesheet" href="css/chartist.min.css">
   <link rel="stylesheet" href="css/themify-icons.css">
@@ -34,31 +32,33 @@
   
   <script src="js/jquery.js"></script>
   <script src="js/bootstrap.js"></script>
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+  <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>-->
   <script src="js/adminlte.min.js"></script>
   <script src="js/bootstrap-toggle.js"></script>
   <script src="js/chartist.min.js"></script>
   <script src="js/miningcore.js"></script>
 
+  
 </head>
 
 <!--
 BODY TAG OPTIONS:
 =================
 Apply one or more of the following classes to get the desired effect
-|---------------------------------------------------------|
+===========================================================
 | SKINS         | skin-blue                               |
 |               | skin-black                              |
 |               | skin-purple                             |
 |               | skin-yellow                             |
 |               | skin-red                                |
 |               | skin-green                              |
-|---------------------------------------------------------|
-
+===========================================================
 -->
 <body class="skin-purple" style="height: auto; min-height: 100%;" onhashchange="loadIndex()">
 
 
-<!-- ----------------------------- COIN TABLE TEMPLATE -->
+<!-- COIN TABLE TEMPLATE -->
           <div class="index-coin-card-template" style="display:none;">
 		     <div class="col-4 ">
               <div class="card card-index card-index-{{ coinId }}" style="width:475px">
@@ -142,7 +142,7 @@ Apply one or more of the following classes to get the desired effect
 		  </div>
 		</div>
 
-<!-- ----------------------------- SIDEBAR TEMPLATE -->	
+<!-- SIDEBAR TEMPLATE -->	
 	  <div class="sidebar-template" style="display:none;">
 		
 		<div class="logo">
@@ -204,12 +204,15 @@ Apply one or more of the following classes to get the desired effect
 	  </div>
 
 
+
 <div class="wrapper" style="height: auto; min-height: 100%;">
 
-<!-- ------------------------------------------------------------ MAIN INDEX -->
+<!-- MAIN INDEX -->
   <div class="main-index" style="display:none;" >
-<!-- ----------------------------- INDEX HEADER -->
+
+<!-- INDEX HEADER -->
     <header class="main-index-header fixed">
+
       <nav class="navbar" >
         <a>  </a>
         <span class="header-text"><b>Miningcore</b> - making mining easy</span>
@@ -225,7 +228,8 @@ Apply one or more of the following classes to get the desired effect
         </div>
       </nav>
     </header>
-<!-- ----------------------------- INDEX HOME PAGE -->
+	
+<!-- INDEX HOME PAGE -->
 	<div class="page page-index">
 		<section class="content-header">
 			<h1>MININGCORE<small>coins to mine</small></h1>
@@ -235,7 +239,7 @@ Apply one or more of the following classes to get the desired effect
 			<!--
 			<div class="index-main row">Loading coin data from pool...</div>
 			-->
-			
+
 			<div class="col-12">
 				<div class="card card-shadow">
 					<h5 class="card-header bg-green">Pool Coins</h5>
@@ -262,7 +266,8 @@ Apply one or more of the following classes to get the desired effect
 			</div>
 		</div>
 	</div>	
-<!-- ----------------------------- INDEX FOOTER --> 
+
+<!-- INDEX FOOTER --> 
     <footer class="main-index-footer">
       <div class="pull-right hidden-xs">
 		<b>Version</b> 1.0
@@ -274,10 +279,10 @@ Apply one or more of the following classes to get the desired effect
 
 
 
-<!-- ------------------------------------------------------------ MAIN POOL -->
+<!-- MAIN POOL -->
   <div class="main-pool" style="display:none;">
   
-<!-- ----------------------------- POOL SIDEBAR -->
+<!-- POOL SIDEBAR -->
     <aside id="main-sidebar" class="main-sidebar">
       <!-- sidebar: style can be found in sidebar.less -->
       <section class="sidebar">
@@ -287,7 +292,7 @@ Apply one or more of the following classes to get the desired effect
 
   
 
-<!-- ----------------------------- POOL HEADER -->
+<!-- POOL HEADER -->
     <header class="main-header fixed">
 
       <nav class="navbar navbar-static-top" role="navigation">
@@ -313,85 +318,135 @@ Apply one or more of the following classes to get the desired effect
 
   <div id="page-scroll-top" class="content-wrapper" style="min-height: 864px;">
 
-<!-- ----------------------------- POOL STATS PAGE -->
+<!-- POOL STATS PAGE -->
 	<div class="page page-stats" style="display:none;">
 		<section class="content-header">
 			<h1>POOL &  NETWORK<small>statistics</small></h1>
 		</section>
 		<div class="content container-fluid">
-				<div class="row">
-					<div class="col-lg-6 col-md-12">
-						<div class="card card-chart">
-							<div class="card-header bg-green">
-								<div class="ct-chart" id="chartStatsHashRatePool"></div>
-							</div>
-							<div class="card-body">
-								<h3 class="card-title"><div id="poolHashRate"></div></h3>
-								<p class="card-category"><i class="ti-pulse"></i> Pool Hashrate</p>
-							</div>
-							<div class="card-footer">
-								<div class="stats">
-									
-								</div>
-							</div>
+
+			<div class="row">
+				<div class="col-lg-6 col-md-12">
+					<div class="card card-chart">
+						<div class="card-header bg-green">
+							<div class="ct-chart" id="chartStatsHashRatePool"></div>
 						</div>
-					</div>
-					<div class="col-lg-6 col-md-12">
-						<div class="card card-chart">
-							<div class="card-header bg-green">
-								<div class="ct-chart" id="chartStatsMiners"></div>
-							</div>
-							<div class="card-body">
-								<h3 class="card-title"><div id="poolMiners"></div></h3>
-								<p class="card-category"><i class="ti-user"></i> Miners (Workers)</p>
-							</div>
-							<div class="card-footer">
-								<div class="stats">
-									
-								</div>
+						<div class="card-body">
+							<h3 class="card-title"><div id="poolHashRate"></div></h3>
+							<p class="card-category"><i class="ti-pulse"></i> Pool Hashrate</p>
+						</div>
+						<div class="card-footer">
+							<div class="stats">
+								
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-lg-6 col-md-12">
-						<div class="card card-chart">
-							<div class="card-header bg-yellow">
-								<div class="ct-chart" id="chartStatsHashRate"></div>
-							</div>
-							<div class="card-body">
-								<h3 class="card-title"><div id="networkHashRate"></div></h3>
-								<p class="card-category"><i class="ti-pulse"></i> Network Hashrate</p>
-							</div>
-							<div class="card-footer">
-								<div class="stats">
-									
-								</div>
-							</div>
+				<div class="col-lg-6 col-md-12">
+					<div class="card card-chart">
+						<div class="card-header bg-green">
+							<div class="ct-chart" id="chartStatsMiners"></div>
 						</div>
-					</div>
-					<div class="col-lg-6 col-md-12">
-						<div class="card card-chart">
-							<div class="card-header bg-yellow">
-								<div class="ct-chart" id="chartStatsDiff"></div>
-							</div>
-							<div class="card-body">
-								<h3 class="card-title"><div id="networkDifficulty"></div></h3>
-								<p class="card-category"><i class="ti-hummer"></i> Network Difficulty</p>
-							</div>
-							<div class="card-footer">
-								<div class="stats">
-									
-								</div>
+						<div class="card-body">
+							<h3 class="card-title"><div id="poolMiners"></div></h3>
+							<p class="card-category"><i class="ti-user"></i> Miners (Workers)</p>
+						</div>
+						<div class="card-footer">
+							<div class="stats">
+								
 							</div>
 						</div>
 					</div>
 				</div>
+			</div>
+				
+			<div class="row">
+	
+				<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+					<div class="info-box">
+						<span class="info-box-icon bg-aqua"><i class=""></i></span>
+						<div class="info-box-content">
+							<span class="info-box-text">blockchain height</span>
+							<span class="info-box-number"><div id="blockchainHeight"></div></span>
+						</div>
+					</div>
+				</div>
+			
+				<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+					<div class="info-box">
+						<span class="info-box-icon bg-yellow"><i class=""></i></span>
+						<div class="info-box-content">
+							<span class="info-box-text">connected peers</span>
+							<span class="info-box-number"><div id="connectedPeers"></div></span>
+						</div>
+					</div>
+				</div>
+			
+				<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+					<div class="info-box">
+						<span class="info-box-icon bg-red"><i class=""></i></span>
+						<div class="info-box-content">
+							<span class="info-box-text">payment threshold</span>
+							<span class="info-box-number"><div id="minimumPayment"></div></span>
+							<span class="info-box-number"><div id="payoutScheme"></div></span>
+						</div>
+					</div>
+				</div>
+			
+				<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+					<div class="info-box">
+						<span class="info-box-icon bg-green"><i class=""></i></span>
+						<div class="info-box-content">
+							<span class="info-box-text">pool fee</span>
+							<span class="info-box-number"><div id="poolFeePercent"></div></span>
+						</div>
+					</div>
+				</div>
+
+			</div><!-- /.row -->
+				
+				
+				
+				
+			<div class="row">
+				<div class="col-lg-6 col-md-12">
+					<div class="card card-chart">
+						<div class="card-header bg-yellow">
+							<div class="ct-chart" id="chartStatsHashRate"></div>
+						</div>
+						<div class="card-body">
+							<h3 class="card-title"><div id="networkHashRate"></div></h3>
+							<p class="card-category"><i class="ti-pulse"></i> Network Hashrate</p>
+						</div>
+						<div class="card-footer">
+							<div class="stats">
+								
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6 col-md-12">
+					<div class="card card-chart">
+						<div class="card-header bg-yellow">
+							<div class="ct-chart" id="chartStatsDiff"></div>
+						</div>
+						<div class="card-body">
+							<h3 class="card-title"><div id="networkDifficulty"></div></h3>
+							<p class="card-category"><i class="ti-hummer"></i> Network Difficulty</p>
+						</div>
+						<div class="card-footer">
+							<div class="stats">
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>			
 
 	</div>
 	
-<!-- ----------------------------- POOL DASHBOARD PAGE -->
+<!-- POOL DASHBOARD PAGE -->
     <div class="page page-dashboard" style="display:none;">
 		<section class="content-header">
 			<h1>MINER<small>dashboard</small></h1>
@@ -524,7 +579,7 @@ Apply one or more of the following classes to get the desired effect
 	
 	</div>
 	
-<!-- ----------------------------- POOL MINERS PAGE -->	
+<!-- POOL MINERS PAGE -->	
       <div class="page page-miners" style="display:none;">
 		<section class="content-header">
 			<h1>POOL<small>Top miners</small></h1>
@@ -563,7 +618,7 @@ Apply one or more of the following classes to get the desired effect
 		</div>	
 	</div>
 	
-<!-- ----------------------------- POOL BLOCKS PAGE -->
+<!-- POOL BLOCKS PAGE -->
     <div class="page page-blocks" style="display:none;">
 		<section class="content-header">
 			<h1>POOL<small>blocks found</small></h1>
@@ -602,7 +657,7 @@ Apply one or more of the following classes to get the desired effect
 		</div>
 	</div>
 	
-<!-- ----------------------------- POOL PAYMENTS PAGE -->
+<!-- POOL PAYMENTS PAGE -->
     <div class="page page-payments" style="display:none;">
 		<section class="content-header">
 			<h1>POOL<small>payments</small></h1>
@@ -639,7 +694,7 @@ Apply one or more of the following classes to get the desired effect
 		</div>	
 	</div>
 		
-<!-- ----------------------------- POOL CONNECT PAGE -->
+<!-- POOL CONNECT PAGE -->
     <div class="page page-connect" style="display:none;">
 		<section class="content-header">
 			<h1>POOL<small>connection</small></h1>
@@ -679,7 +734,7 @@ Apply one or more of the following classes to get the desired effect
 		</div>
 	</div>
 	
-<!-- ----------------------------- POOL FAQ PAGE -->	  
+<!-- POOL FAQ PAGE -->	  
     <div class="page page-faq" style="display:none;">
 		<section class="content-header">
 			<h1>POOL<small>questions & answers</small></h1>
@@ -841,7 +896,7 @@ Apply one or more of the following classes to get the desired effect
 
 	</div>
 
-<!-- ----------------------------- POOL SUPPORT PAGE -->	  
+<!-- POOL SUPPORT PAGE -->	  
     <div class="page page-support" style="display:none;">
 		<section class="content-header">
 			<h1>POOL<small>support</small></h1>
