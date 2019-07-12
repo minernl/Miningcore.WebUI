@@ -21,14 +21,16 @@
   
   <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">-->
   <link rel="stylesheet" href="css/bootstrap.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
-  <!--<link rel="stylesheet" href="css/font-awesome.css">-->
+  <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">-->
   <link rel="stylesheet" href="css/skins/skin-purple.css">
   <link rel="stylesheet" href="css/chartist.min.css">
+  <link rel="stylesheet" href="css/font-awesome-all.css">
   <link rel="stylesheet" href="css/themify-icons.css">
+  <link rel="stylesheet" href="css/font-awesome-icons.css">
   <link rel="stylesheet" href="css/miningcore.css">
   <link rel="stylesheet" href="css/miningcore-colors.css">
   <link rel="stylesheet" href="css/bootstrap-toggle.css">  
+  <link rel="stylesheet" href="css/bootstrap-notify.css">
   
   <script src="js/jquery.js"></script>
   <script src="js/bootstrap.js"></script>
@@ -59,68 +61,12 @@ Apply one or more of the following classes to get the desired effect
 
 
 <!-- COIN TABLE TEMPLATE -->
-          <div class="index-coin-card-template" style="display:none;">
-		     <div class="col-4 ">
-              <div class="card card-index card-index-{{ coinId }}" style="width:475px">
-                <div class="card-header bg-yellow">
-                  <h4 class="card-title text-center">{{ coinLogo }} {{ coinName }}</h4>
-                </div>
-                <div class="card-body">
-                  <table class="table">
-                    <tbody>
-                      <tr>
-					    <td>Aglorithm</td>
-						<td>  </td>
-                        <td>{{ aglorithm }}</td>
-                      </tr>
-                      <tr>
-                        <td>Pool Hashrate</td>
-						<td></td>
-						<td>{{ poolHashrate }}</td>
-                      </tr>
-                      <tr>
-                        <td>Active Miners</td>
-						<td></td>
-						<td>{{ minerCount }}</td>
-                      </tr>
-                      <tr>
-                        <td>Minimum Payout</td>
-						<td></td>
-						<td>{{ minimumPayout }} {{ coinType }}</td>
-                      </tr>
-                      <tr>
-                        <td>Pool Fee</td>
-						<td></td>
-						<td>{{ poolFee }}</td>
-                      </tr>
-                      <tr></tr>
-                      <tr>
-                        <td>Network Hashrate</td>
-						<td></td>
-						<td>{{ networkHashrate }}</td>
-                      </tr>
-                      <tr>
-                        <td>Network Difficulty</td>
-						<td>  </td>
-						<td>{{ networkDiff }}</td>
-                      </tr>
-                    </tbody>
-                  </table>
-				</div>
-				<div class="card-footer">
-                  <div class="index-connection">{{ connection }}</div>
-                </div>
-                <a href="#{{ coinId }}" data-id="{{ coinId }}" class="card-btn">Go Mine {{ coinLogo }} {{ coinName }}</a>
- 			  </div>
-            </div>
-		</div>
-		
 		<div class="index-coin-table-template" style="display:none;">
 		  <div class="row">
 			<div class="col-12">
               <div class="card">
                 <div class="card-header card-header-warning">
-                  <h3 class="card-title "><p><i class="fa fa-users"></i> Pool Coins </p></h3>
+                  <h3 class="card-title "><p><i class="fas fa-users"></i> Pool Coins </p></h3>
                   <p class="card-category"> Top 20 contributors</p>
                 </div>
                 <div class="card-body table-hover">
@@ -142,6 +88,7 @@ Apply one or more of the following classes to get the desired effect
 		  </div>
 		</div>
 
+
 <!-- SIDEBAR TEMPLATE -->	
 	  <div class="sidebar-template" style="display:none;">
 		
@@ -156,47 +103,47 @@ Apply one or more of the following classes to get the desired effect
 		  </li>
 		  <li class="nav-home">
             <a class="nav-link" href="#">
-              <i class="fa fa-home"></i><span>Home</span>
+              <i class="fas fa-home"></i><span>Home</span>
             </a>
           </li>
 		  <li class="nav-stats">
             <a class="nav-link" href="#{{ coinId }}/stats">
-              <i class="fa ti-stats-up"></i><span>Stats</span>
+              <i class="fas fa-chart-line"></i><span>Stats</span>
             </a>
           </li>
           <li class="nav-dashboard">
             <a class="nav-link" href="#{{ coinId }}/dashboard">
-              <i class="fa ti-dashboard"></i><span>Dashboard</span>
+              <i class="fas fa-tachometer-alt"></i><span>Dashboard</span>
             </a>
           </li>
           <li class="nav-miners">
             <a class="nav-link" href="#{{ coinId }}/miners">
-              <i class="fa ti-user"></i><span>Miners</span>
+              <i class="fas fa-users"></i></i><span>Miners</span>
             </a>
           </li>
           <li class="nav-blocks">
             <a class="nav-link"  href="#{{ coinId }}/blocks">
-              <i class="fa ti-layers-alt"></i><span>Blocks</span>
+              <i class="fas fa-cubes"></i><span>Blocks</span>
             </a>
           </li>
           <li class="nav-payments">
             <a class="nav-link" href="#{{ coinId }}/payments">
-             <i class="fa ti-wallet"></i><span>Payments</span>
+             <i class="fas fa-wallet"></i><span>Payments</span>
             </a>
           </li>
           <li class="nav-connect">
             <a class="nav-link" href="#{{ coinId }}/connect">
-              <i class="fa ti-plug"></i><span>Connect</span>
+              <i class="fas fa-plug"></i><span>Connect</span>
             </a>
           </li>
           <li class="nav-faq">
             <a class="nav-link" href="#{{ coinId }}/faq">
-              <i class="fa ti-comments"></i><span>FAQ</span>
+              <i class="fas fa-comment-dots"></i><span>FAQ</span>
             </a>
           </li>
           <li class="nav-support">
             <a class="nav-link" href="#{{ coinId }}/support">
-              <i class="fa ti-headphone-alt"></i><span>Support</span>
+              <i class="ti-headphone-alt"></i><span>Support</span>
             </a>
           </li>
         </ul>
@@ -236,13 +183,18 @@ Apply one or more of the following classes to get the desired effect
 		</section>
 		<div class="content container-fluid " >	
 			
-			<!--
-			<div class="index-main row">Loading coin data from pool...</div>
-			-->
-
+			<div class="col-12">
+				<div class="card card-shadow card-body">
+					<center><h5> Welcome to Miningcore Mining Pool</h5></center>
+					<hr>
+					<p>Low fee, high performance and a nice design. </br> Pick a coin, connect you miner and make some coins.</p>
+					</br>
+				</div>
+			</div>
+			</br>
 			<div class="col-12">
 				<div class="card card-shadow">
-					<h5 class="card-header bg-green">Pool Coins</h5>
+					<h5 class="card-header bg-green"><i class="fas fa-coins"></i> Pool Coins</h5>
 					<div class="card-body p-0">
 						<div class="table-responsive">
 							<table id="pool-coins" class="table table-striped table-hover ">
@@ -264,15 +216,13 @@ Apply one or more of the following classes to get the desired effect
 					</div>
 				</div>
 			</div>
+			
 		</div>
 	</div>	
 
 <!-- INDEX FOOTER --> 
     <footer class="main-index-footer">
-      <div class="pull-right hidden-xs">
-		<b>Version</b> 1.0
-      </div>
-      <strong><a href="https://coinstomine.eu/">&copy; <script>document.write(new Date().getFullYear())</script> made by COINStoMINE.eu</a></strong>
+      <strong><a target="_blank" href="https://github.com/minernl/Miningcore.WebUI">&copy; <script>document.write(new Date().getFullYear())</script> made by COINStoMINE.eu</a> - Version 1.02</strong>
     </footer>
 
   </div>
@@ -296,9 +246,7 @@ Apply one or more of the following classes to get the desired effect
     <header class="main-header fixed">
 
       <nav class="navbar navbar-static-top" role="navigation">
-        <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-          <span class="sr-only">Toggle navigation</span>
-        </a>
+        <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button"><i class="fas fa-bars"></i></a>
 
         <span class="header-text"><b>Miningcore</b> - making mining easy</span>
 	  
@@ -333,7 +281,7 @@ Apply one or more of the following classes to get the desired effect
 						</div>
 						<div class="card-body">
 							<h3 class="card-title"><div id="poolHashRate"></div></h3>
-							<p class="card-category"><i class="ti-pulse"></i> Pool Hashrate</p>
+							<p class="card-category"><i class="fas fa-wave-square"></i> Pool Hashrate</p>
 						</div>
 						<div class="card-footer">
 							<div class="stats">
@@ -349,7 +297,7 @@ Apply one or more of the following classes to get the desired effect
 						</div>
 						<div class="card-body">
 							<h3 class="card-title"><div id="poolMiners"></div></h3>
-							<p class="card-category"><i class="ti-user"></i> Miners (Workers)</p>
+							<p class="card-category"><i class="fas fa-user"></i> Miners (Workers)</p>
 						</div>
 						<div class="card-footer">
 							<div class="stats">
@@ -364,7 +312,7 @@ Apply one or more of the following classes to get the desired effect
 	
 				<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
 					<div class="info-box">
-						<span class="info-box-icon bg-aqua"><i class=""></i></span>
+						<span class="info-box-icon bg-aqua"><i class="fas fa-bars"></i></span>
 						<div class="info-box-content">
 							<span class="info-box-text">blockchain height</span>
 							<span class="info-box-number"><div id="blockchainHeight"></div></span>
@@ -374,7 +322,7 @@ Apply one or more of the following classes to get the desired effect
 			
 				<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
 					<div class="info-box">
-						<span class="info-box-icon bg-yellow"><i class=""></i></span>
+						<span class="info-box-icon bg-yellow"><i class="fas fa-code-branch"></i></span>
 						<div class="info-box-content">
 							<span class="info-box-text">connected peers</span>
 							<span class="info-box-number"><div id="connectedPeers"></div></span>
@@ -384,7 +332,7 @@ Apply one or more of the following classes to get the desired effect
 			
 				<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
 					<div class="info-box">
-						<span class="info-box-icon bg-red"><i class=""></i></span>
+						<span class="info-box-icon bg-red"><i class="fas fa-trophy"></i></span>
 						<div class="info-box-content">
 							<span class="info-box-text">payment threshold</span>
 							<span class="info-box-number"><div id="minimumPayment"></div></span>
@@ -395,7 +343,7 @@ Apply one or more of the following classes to get the desired effect
 			
 				<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
 					<div class="info-box">
-						<span class="info-box-icon bg-green"><i class=""></i></span>
+						<span class="info-box-icon bg-green"><i class="fas fa-chart-pie"></i></span>
 						<div class="info-box-content">
 							<span class="info-box-text">pool fee</span>
 							<span class="info-box-number"><div id="poolFeePercent"></div></span>
@@ -416,7 +364,7 @@ Apply one or more of the following classes to get the desired effect
 						</div>
 						<div class="card-body">
 							<h3 class="card-title"><div id="networkHashRate"></div></h3>
-							<p class="card-category"><i class="ti-pulse"></i> Network Hashrate</p>
+							<p class="card-category"><i class="fas fa-wave-square"></i> Network Hashrate</p>
 						</div>
 						<div class="card-footer">
 							<div class="stats">
@@ -432,7 +380,7 @@ Apply one or more of the following classes to get the desired effect
 						</div>
 						<div class="card-body">
 							<h3 class="card-title"><div id="networkDifficulty"></div></h3>
-							<p class="card-category"><i class="ti-hummer"></i> Network Difficulty</p>
+							<p class="card-category"><i class="fas fa-hammer"></i> Network Difficulty</p>
 						</div>
 						<div class="card-footer">
 							<div class="stats">
@@ -484,7 +432,7 @@ Apply one or more of the following classes to get the desired effect
 	
 			<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
 				<div class="info-box">
-					<span class="info-box-icon bg-aqua"><i class="ti-receipt"></i></span>
+					<span class="info-box-icon bg-aqua"><i class="fas fa-receipt"></i></span>
 					<div class="info-box-content">
 						<span class="info-box-text">Pending Shares</span>
 						<span class="info-box-number"><div id="pendingShares"></div></span>
@@ -493,7 +441,7 @@ Apply one or more of the following classes to get the desired effect
 			</div>
 			<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
 				<div class="info-box">
-					<span class="info-box-icon bg-red"><i class="fa fa-bank"></i></span>
+					<span class="info-box-icon bg-red"><i class="fas fa-hand-holding-usd"></i></span>
 					<div class="info-box-content">
 						<span class="info-box-text">Pending Balance</span>
 						<span class="info-box-number"><div id="pendingBalance"></div></span>
@@ -502,7 +450,7 @@ Apply one or more of the following classes to get the desired effect
 			</div>
 			<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
 				<div class="info-box">
-					<span class="info-box-icon bg-green"><i class="fa fa-money"></i></span>
+					<span class="info-box-icon bg-green"><i class="far fa-money-bill-alt"></i></span>
 					<div class="info-box-content">
 						<span class="info-box-text">Paid Balance Today</span>
 						<span class="info-box-number"><div id="paidBalance"></div></span>
@@ -511,7 +459,7 @@ Apply one or more of the following classes to get the desired effect
 			</div>
 			<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
 				<div class="info-box">
-					<span class="info-box-icon bg-yellow"><i class="ti-wallet"></i></span>
+					<span class="info-box-icon bg-yellow"><i class="fas fa-piggy-bank"></i></span>
 					<div class="info-box-content">
 						<span class="info-box-text">Lifetime Balance</span>
 						<span class="info-box-number"><div id="lifetimeBalance"></div></span>
@@ -533,7 +481,7 @@ Apply one or more of the following classes to get the desired effect
 					
                     <div class="card-body">
 						<h3 class="card-title"><div id="minerHashRate"></div></h3>
-						<p class="card-category"><i class="ti-pulse"></i> Miner's Hash Rate</p>
+						<p class="card-category"><i class="fas fa-wave-square"></i> Miner's Hash Rate</p>
 					</div>
 					
 					<div class="card-footer">
@@ -549,15 +497,15 @@ Apply one or more of the following classes to get the desired effect
 			
               <div class="card card-table">
                 <div class="card-header bg-aqua">
-                  <h3 class="card-title "><p><i class="fa fa-users"></i> Workers (<span id="workerCount"></span>)</p></h3>
+                  <h3 class="card-title "><p><i class="fas fa-users"></i> Workers (<span id="workerCount"></span>)</p></h3>
                   <p class="card-category"> List of miners working for you</p>
                 </div>
                 <div class="card-body table-hover">
                   <div class="table-responsive">
-                    <table class="table">
+                    <table id="miner-workers" class="table miner-workers">
                       <thead class=" text-primary">
                         
-						<tr>
+						<tr class="miner-workers">
 						<th>Index</th>
                         <th>Name</th>
                         <th>Hashrate</th>
@@ -591,15 +539,15 @@ Apply one or more of the following classes to get the desired effect
 			
               <div class="card">
                 <div class="card-header bg-red">
-                  <h3 class="card-title "><p><i class="fa fa-users"></i> Best Miners</p></h3>
+                  <h3 class="card-title "><p><i class="fas fa-users"></i> Best Miners</p></h3>
                   <p class="card-category"> Top 20 contributors</p>
                 </div>
                 <div class="card-body table-hover">
                   <div class="table-responsive">
-                    <table class="table">
+                    <table id="miners" class="table miners">
                       <thead class=" text-primary">
                         
-						<tr>
+						<tr class="miners">
 							<th>Address</th>
                             <th>Hashrate</th>
                             <th>Share Rate</th>
@@ -629,15 +577,15 @@ Apply one or more of the following classes to get the desired effect
 			<div class="col-lg-12 col-md-12">
               <div class="card">
                 <div class="card-header bg-green-gradient">
-                  <h3 class="card-title "><p><i class="ti-layers-alt"></i> Blocks Mined</p></h3>
+                  <h3 class="card-title "><p><i class="fas fa-cubes"></i> Blocks Mined</p></h3>
                   <p class="card-category"> Last 100 blocks</p>
                 </div>
                 <div class="card-body table-hover">
                   <div class="table-responsive">
-                    <table class="table">
+                    <table id="blocks" class="table blocks">
                       <thead class=" text-primary">
                         
-						<tr>
+						<tr class="blocks">
 							<th>Found</th>
                             <th>Height</th>
                             <th>Effort</th>
@@ -668,15 +616,15 @@ Apply one or more of the following classes to get the desired effect
 			<div class="col-lg-12 col-md-12">
               <div class="card">
                 <div class="card-header bg-aqua">
-                  <h3 class="card-title "><p><i class="ti-wallet"></i> Payments Rewarded</p></h3>
+                  <h3 class="card-title "><p><i class="fas fa-wallet"></i> Payments Rewarded</p></h3>
                   <p class="card-category"> Last 500 payments</p>
                 </div>
                 <div class="card-body table-hover">
                   <div class="table-responsive">
-                    <table class="table">
+                    <table id="payments" class="table payments">
                       <thead class=" text-primary">
                         
-						<tr>
+						<tr class="payments">
 							<th>Sent</th>
                             <th>Address</th>
                             <th>Amount</th>
@@ -705,14 +653,14 @@ Apply one or more of the following classes to get the desired effect
 			<div class="col-lg-12 col-md-12">
               <div class="card">
                 <div class="card-header bg-maroon-gradient">
-                  <h3 class="card-title "><p><i class="ti-plug"></i> Pool Configuration</p></h3>
+                  <h3 class="card-title "><p><i class="fas fa-plug"></i> Pool Configuration</p></h3>
                   <p class="card-category"> All you need to connect your miners</p>
                 </div>
                 <div class="card-body table-hover">
                   <div class="table-responsive">
-                    <table class="table">
+                    <table id="pool-config" class="table pool-config">
                       <thead class=" text-primary">
-						<tr>
+						<tr class="pool-config">
 							<th>Item</th>
                             <th>Value</th>
                         </tr>
@@ -745,7 +693,7 @@ Apply one or more of the following classes to get the desired effect
                 <div class="col-lg-12 col-sm-12">
                   <div class="card">
                     <div class="card-header bg-black-gradient">
-						<h4 class="card-title">FAQ</h4>
+						<h4 class="card-title"><i class="fas fa-comment-dots"></i> FAQ</h4>
 						<p class="card-category">
 							How does the pool work?
 						</p>
@@ -905,7 +853,7 @@ Apply one or more of the following classes to get the desired effect
 		  <div class="row">
             <div class="col-lg-12 col-sm-12">
                 <div class="card">
-                   <div class="card-header bg-teal-gradient"><h4 class="title">Support</h4></div>
+                   <div class="card-header bg-teal-gradient"><h4 class="title"><i class="ti-headphone-alt"></i> Support</h4></div>
                     <div class="content table-responsive table-full-width">
                       <a href="https://discord.gg/" target="_blank"> <img style="width:300px;" src="img/discord.png" alt="Discord"> </a>
                       <a href="https://t.me/joinchat/" target="_blank"> <img style="width:300px;" src="img/telegram.png" alt="Telegram"> </a>
@@ -919,12 +867,7 @@ Apply one or more of the following classes to get the desired effect
   </div> 
 
   <footer class="main-footer">
-	<strong><a href="https://coinstomine.eu/">&copy; <script>document.write(new Date().getFullYear())</script> made by COINStoMINE.eu</a></strong>
-	
-    <div class="pull-right">
-		<b>Version</b> 1.0
-    </div>
-    
+	<strong><a target="_blank" href="https://github.com/minernl/Miningcore.WebUI">&copy; <script>document.write(new Date().getFullYear())</script> made by COINStoMINE.eu</a></strong>    
   </footer>
  
   </div> <!-- end main-pool -->

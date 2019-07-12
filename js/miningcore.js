@@ -9,7 +9,7 @@
 // You can check this in the browser development view F12 - Console 
 var WebURL         = window.location.protocol + "//" + window.location.hostname + "/";  // Website URL is:  https://domain.com/
 var API            = WebURL + "api/";   												// API address is:  https://domain.com/api/
-var stratumAddress = "stratum+tcp://" + window.location.hostname + ":";                 // basic stratum address is:  stratum+tcp://domain.com:
+var stratumAddress = window.location.hostname;           							    // Stratum address is:  domain.com
 //
 // --------------------------------------------------------------------------------------------
 
@@ -20,7 +20,7 @@ var stratumAddress = "stratum+tcp://" + window.location.hostname + ":";         
 // --------------------------------------------------------------------------------------------
 console.log('MiningCore.WebUI : ', WebURL);			// Returns website URL
 console.log('API address used : ', API);            // Returns API URL
-console.log('Stratum address  : ', stratumAddress); // Returns Stratum URL
+console.log('Stratum address  : ', "stratum+tcp://" + stratumAddress + ":"); // Returns Stratum URL
 console.log('Page Load        : ', window.location.href); // Returns full URL
 
 currentPage = "index"
@@ -136,58 +136,19 @@ function loadHomePage() {
   console.log('Loading home page content');
   return $.ajax(API + "pools")
     .done(function(data) {
-      var poolList = "";
       const poolCoinCardTemplate = $(".index-coin-card-template").html();
 	  //const poolCoinTableTemplate = "";  //$(".index-coin-table-template").html();
 	  
 	  var poolCoinTableTemplate = "";
 		
       $.each(data.pools, function(index, value) {
-        var connectPoolConfig = "";
-        $.each(value.ports, function(port, options) {
-          connectPoolConfig += "<div><i class='ti-plug'></i> " + stratumAddress + port;
-           if (
-             typeof options.varDiff !== "undefined" &&
-             options.varDiff != null
-           ) {
-             connectPoolConfig +=
-               "   --> Variable " + options.varDiff.minDiff + " &harr; ";
-             if (
-               typeof options.varDiff.maxDiff === "undefined" ||
-               options.varDiff.maxDiff == null
-             ) {
-               connectPoolConfig += "&infin;";
-             } else {
-               connectPoolConfig += options.varDiff.maxDiff;
-             }
-           } else {
-             connectPoolConfig += "  --> Static / " + options.difficulty;
-           }
-          connectPoolConfig += "</div>";
-        });
-		
-        var coinLogo = "<img style='width:40px' src='img/coin/icon/" + value.coin.type.toLowerCase() + ".png' />";
+ 
+        var coinLogo = "<img class='coinimg' src='img/coin/icon/" + value.coin.type.toLowerCase() + ".png' />";
 		var coinName = value.coin.name;
 		if (typeof coinName === "undefined" || coinName === null) {coinName = value.coin.type;} 
-        poolList += "" + poolCoinCardTemplate
-            .replace(/{{ coinName }}/g, coinName)
-            .replace(/{{ coinId }}/g, value.id.toLowerCase())
-            .replace(/{{ aglorithm }}/g, value.coin.algorithm)
-            .replace(/{{ coinLogo }}/g, coinLogo)
-            .replace(/{{ miningMethod }}/g, value.miningMethod)
-            .replace(/{{ poolHashrate }}/g, _formatter(value.poolStats.poolHashrate, 5, "H/s"))
-            .replace(/{{ minerCount }}/g, value.poolStats.connectedMiners)
-            .replace(/{{ minimumPayout }}/g, value.paymentProcessing.minimumPayment)
-            .replace(/{{ coinType }}/g, value.coin.type)
-            .replace(/{{ connection }}/g, connectPoolConfig)
-            .replace(/{{ poolFee }}/g, value.poolFeePercent + "%")
-            .replace(/{{ networkHashrate }}/g, _formatter(value.networkStats.networkHashrate, 5, "H/s"))
-            .replace(/{{ networkDiff }}/g, _formatter(value.networkStats.networkDifficulty, 5, ""))
-		+ "";
-		
-		
+        		
 		poolCoinTableTemplate += "<tr class='coin-table-row' href='#" + value.id.toLowerCase() + "'>";
-		poolCoinTableTemplate += "<td class='coin'><a href='#" + value.id.toLowerCase() + "'<span>" + coinLogo + "<b> " + coinName + "</b></span></a></td>";
+		poolCoinTableTemplate += "<td class='coin'><a href='#" + value.id.toLowerCase() + "'<span>" + coinLogo + coinName + " (" + value.coin.type.toUpperCase() + ") </span></a></td>";
 		poolCoinTableTemplate += "<td class='algo'>" + value.coin.algorithm + "</td>";
 		poolCoinTableTemplate += "<td class='miners'>" + value.poolStats.connectedMiners + "</td>";
 		poolCoinTableTemplate += "<td class='pool-hash'>" + _formatter(value.poolStats.poolHashrate, 5, "H/s") + "</td>";
@@ -198,10 +159,9 @@ function loadHomePage() {
 		poolCoinTableTemplate += "</tr>";
       });
 
-      if (poolList.length > 0) {
-        $(".index-main").html(poolList);
+      //if (poolList.length > 0) {
        	$(".pool-coin-table").html(poolCoinTableTemplate);
-      }
+      //}
 	  	  
 	  $(document).ready(function() {
         $('#pool-coins tr').click(function() {
@@ -214,15 +174,19 @@ function loadHomePage() {
 	  
     })
     .fail(function() {
-      $.notify(
-        {
-          message: "Error: No response from API.<br>(loadPools)"
-        },
-        {
-          type: "danger",
-          timer: 3000
-        }
-      );
+      var poolCoinTableTemplate = "";
+	  
+	  poolCoinTableTemplate += "<tr><td colspan='8'> ";
+	  poolCoinTableTemplate += "<div class='alert alert-warning'>"
+		poolCoinTableTemplate += "	<h4><i class='fas fa-exclamation-triangle'></i> Warning!</h4>";
+		poolCoinTableTemplate += "	<hr>";
+		poolCoinTableTemplate += "	<p>The pool is currently down for maintenance.</p>";
+		poolCoinTableTemplate += "	<p>Please try again later.</p>";
+	  poolCoinTableTemplate += "</div>"
+	  poolCoinTableTemplate += "</td></tr>";
+	  
+	  $(".pool-coin-table").html(poolCoinTableTemplate);
+	  
     });
 }
 
@@ -401,23 +365,47 @@ function loadConnectPage() {
   return $.ajax(API + "pools")
     .done(function(data) {
       var connectPoolConfig = "";
-      var defaultPort = "";
-      var stratum = "<table class='table stratums'>";
       $.each(data.pools, function(index, value) {
         if (currentPool === value.id) {
-          defaultPort = Object.keys(value.ports)[0];
-          $.each(value.ports, function(port, options) {
-            stratum += "<tr><td class='url'>" + stratumAddress + port + "</td><td>" + options.name + "</td></tr>";
-		  });
-          connectPoolConfig = populateConnectEnglish(value);
-		  coinType = value.coin.type.toLowerCase();
-		 
+			
+			defaultPort = Object.keys(value.ports)[0];
+        	coinName = value.coin.name;
+			coinType = value.coin.type.toLowerCase();
+			algorithm = value.coin.algorithm;
+			
+			// Connect Pool config table
+			connectPoolConfig += "<tr><td>Crypto Coin name</td><td>" + coinName + " (" + value.coin.type + ") </td></tr>";
+			//connectPoolConfig += "<tr><td>Coin Family line </td><td>" + value.coin.family + "</td></tr>";
+			connectPoolConfig += "<tr><td>Coin Algorithm</td><td>" + value.coin.algorithm + "</td></tr>";
+			connectPoolConfig += '<tr><td>Pool Wallet</td><td><a href="' + value.addressInfoLink + '" target="_blank">' + value.address.substring(0, 12) + " &hellip; " + value.address.substring(value.address.length - 12) + "</a></td></tr>";
+			connectPoolConfig += "<tr><td>Payout Scheme</td><td>" + value.paymentProcessing.payoutScheme + "</td></tr>";
+			connectPoolConfig += "<tr><td>Minimum Payment</td><td>" + value.paymentProcessing.minimumPayment + " " + value.coin.type + "</td></tr>";
+			if (typeof value.paymentProcessing.minimumPaymentToPaymentId !== "undefined") {
+				connectPoolConfig += "<tr><td>Minimum Payout (to Exchange)</td><td>" + value.paymentProcessing.minimumPaymentToPaymentId + "</td></tr>";
+			}
+			connectPoolConfig += "<tr><td>Pool Fee</td><td>" + value.poolFeePercent + "%</td></tr>";
+			$.each(value.ports, function(port, options) {
+				connectPoolConfig += "<tr><td>stratum+tcp://" + coinType + "." + stratumAddress + ":" + port + "</td><td>";
+				if (typeof options.varDiff !== "undefined" && options.varDiff != null) {
+					connectPoolConfig += "Difficulty Variable / " + options.varDiff.minDiff + " &harr; ";
+					if (typeof options.varDiff.maxDiff === "undefined" || options.varDiff.maxDiff == null) {
+						connectPoolConfig += "&infin; ";
+					} else {
+						connectPoolConfig += options.varDiff.maxDiff;
+					}
+				} else {
+					connectPoolConfig += "Difficulty Static / " + options.difficulty ;
+				}
+				connectPoolConfig += "</td></tr>";
+			});
+ 
         }
       });
-      stratum += "<tr><td></td><td></td></tr></table>";
       connectPoolConfig += "</tbody>";
       $("#connectPoolConfig").html(connectPoolConfig);
 	  
+	  
+	  // Connect Miner config 
 	  $("#miner-config").html("");
       $("#miner-config").load("poolconfig/" + coinType + ".html",
         function( response, status, xhr ) {
@@ -426,16 +414,18 @@ function loadConnectPage() {
 			  function(responseText){
 				var config = $("#miner-config")
                 .html()
-				.replace(/{{ stratumAddress }}/g, stratumAddress + defaultPort)
-				.replace(/{{ stratum }}/g, stratum);
+				.replace(/{{ stratumAddress }}/g, coinType + "." + stratumAddress + ":" + defaultPort)
+				.replace(/{{ coinName }}/g, coinName)
+				.replace(/{{ aglorithm }}/g, algorithm);
 				$(this).html(config);  
 			  }
 			);
 		  } else {
 			var config = $("#miner-config")
             .html()
-            .replace(/{{ stratumAddress }}/g, stratumAddress + defaultPort)
-            .replace(/{{ stratum }}/g, stratum);
+            .replace(/{{ stratumAddress }}/g, coinType + "." + stratumAddress + ":" + defaultPort)
+			.replace(/{{ coinName }}/g, coinName)
+			.replace(/{{ aglorithm }}/g, algorithm);
             $(this).html(config);
 		  }
         }
@@ -798,34 +788,6 @@ function loadDashboardChart(walletAddress) {
         }
       );
     });
-}
-
-
-// CONNECT page data english
-function populateConnectEnglish(value) {
-  var connectPoolConfig = "<tr><td>Coin Algorithm</td><td>" + value.coin.algorithm + "</td></tr>";
-  connectPoolConfig += '<tr><td>Pool Wallet</td><td><a href="' + value.addressInfoLink + '" target="_blank">' + value.address.substring(0, 12) + " &hellip; " + value.address.substring(value.address.length - 12) + "</a></td></tr>";
-  connectPoolConfig += "<tr><td>Payout Scheme</td><td>" + value.paymentProcessing.payoutScheme + "</td></tr>";
-  connectPoolConfig += "<tr><td>Minimum Payment</td><td>" + value.paymentProcessing.minimumPayment + "</td></tr>";
-  if (typeof value.paymentProcessing.minimumPaymentToPaymentId !== "undefined") {
-    connectPoolConfig += "<tr><td>Minimum Payout (to Exchange)</td><td>" + value.paymentProcessing.minimumPaymentToPaymentId + "</td></tr>";
-  }
-  connectPoolConfig += "<tr><td>Pool Fee</td><td>" + value.poolFeePercent + "%</td></tr>";
-  $.each(value.ports, function(port, options) {
-    connectPoolConfig += "<tr><td>Port " + port + " Difficulty</td><td>";
-    if (typeof options.varDiff !== "undefined" && options.varDiff != null) {
-      connectPoolConfig += options.varDiff.minDiff + " &harr; ";
-      if (typeof options.varDiff.maxDiff === "undefined" || options.varDiff.maxDiff == null) {
-        connectPoolConfig += "&infin; / Variable";
-      } else {
-        connectPoolConfig += "Variable / " + options.varDiff.maxDiff;
-      }
-    } else {
-      connectPoolConfig += "Static / " + options.difficulty;
-    }
-    connectPoolConfig += "</td></tr>";
-  });
-  return connectPoolConfig;
 }
 
 

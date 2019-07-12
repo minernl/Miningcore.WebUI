@@ -3,6 +3,7 @@ MINICORE CSS settings
 ****************************************************************/
 body {
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: 1rem;
   background-color: #eee;
   color: #3C4858;
   font-weight: 300;
@@ -39,13 +40,9 @@ body {
     float: left;
     background-color: transparent;
     background-image: none;
-    padding: 15px 15px;
-    font-family: fontAwesome;
+    padding: 10px 10px;
 }
 
-.main-header .sidebar-toggle:before {
- content:"\f0c9";
-}
 
 .main-header {
   top: 0;
@@ -263,17 +260,17 @@ body {
 }
 
 
-
-
-
-
-
-.table th, .table td {
+.table th {
     padding: 0.75rem;
     vertical-align: middle;
     border-top: 1px solid #dee2e6;
 }
 
+.table td {
+    padding: 0.5rem;
+    vertical-align: middle;
+    border-top: 1px solid #dee2e6;
+}
 
 .row {
   display: flex;
@@ -424,7 +421,7 @@ body {
   width: 100%;
   display: flex;
   flex-direction: column;
-  font-size: .8rem;
+  font-size: 1rem;
   word-wrap: normal;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
 }
@@ -508,7 +505,9 @@ div.card-chart {
   padding-top: 5px;
   padding-bottom: 5px;
   padding-left: 20px;
-  padding-right: 20px;  
+  padding-right: 20px; 
+
+  font-size: 16px;  
 }
 
 .card-body .table { 
@@ -529,7 +528,7 @@ div.card-chart {
 .card-input {
   margin-top:  20px;
   margin-bottom:  20px;
-    font-size: 16px;
+  font-size: 16px;
 }
 
 .card-shadow {
@@ -583,6 +582,7 @@ div.card-chart {
 
 	#pool-coins tr {
 		border-top: 1px solid #dee2e6;
+		font-size: 1.05rem;
 	}
 
 	#pool-coins tr:hover {
@@ -592,7 +592,101 @@ div.card-chart {
 	#pool-coins td:hover {
 		cursor: pointer;
 	}
-
+	
+	#pool-coins td {
+		font-size: 1.05rem;
+	}
+	
+	#pool-coins td.coin {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		vertical-align: middle;
+		font-size: 1.1rem;
+	}
+	
+	#pool-coins img.coinimg {
+		width: 32px;
+		height: 32px;
+		vertical-align: middle;
+		margin-left: .7rem;
+		margin-right: .7rem;
+		display: inline-block;
+	}
+	
+	#pool-coins a {
+		color: #000000 ;
+	}
+	
+	#pool-coins a:hover {
+		text-decoration: nounderline;
+	}
+	
+	#miner-workers tr.miner-workers {
+		background-color: #f4f6fa;
+		border-top: 1px solid #dee2e6;
+		font-size: 1.05rem;
+	}
+	
+	#miner-workers td {
+		border-top: 1px solid #dee2e6;
+		font-size: 1.05rem;
+	}
+	
+	#miners tr.miners {
+		background-color: #f4f6fa;
+		border-top: 1px solid #dee2e6;
+		font-size: 1.05rem;
+	}
+	
+	#miners td {
+		border-top: 1px solid #dee2e6;
+		font-size: 1.05rem;
+	}
+	
+	#blocks tr.blocks {
+		background-color: #f4f6fa;
+		border-top: 1px solid #dee2e6;
+		font-size: 1.05rem;
+	}
+	
+	#blocks td {
+		border-top: 1px solid #dee2e6;
+		font-size: 1.05rem;
+	}
+	
+	#payments tr.payments {
+		background-color: #f4f6fa;
+		border-top: 1px solid #dee2e6;
+		font-size: 1.05rem;
+	}
+	
+	#payments td {
+		border-top: 1px solid #dee2e6;
+		font-size: 1.05rem;
+	}
+	
+	#pool-config tr.pool-config {
+		background-color: #f4f6fa;
+		border-top: 1px solid #dee2e6;
+		font-size: 1.05rem;
+	}
+	
+	#pool-config td {
+		border-top: 1px solid #dee2e6;
+		font-size: 1.05rem;
+	}
+	
+	#miner-config tr.miner-config {
+		background-color: #f4f6fa;
+		border-top: 1px solid #dee2e6;
+		font-size: 1.05rem;
+	}
+	
+	#miner-config td {
+		border-top: 1px solid #dee2e6;
+		font-size: 1.05rem;
+	}
 	
 	.sidebar-collapse .main-header .logo {
 		transition: transform .3s ease-in-out,margin .3s ease-in-out;
