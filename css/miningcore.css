@@ -1,6 +1,12 @@
 /*!***************************************************************
 MINICORE CSS settings
 ****************************************************************/
+
+/*!************************************************************************************************************
+  ##Device = All
+  ##Screen = All 
+**************************************************************************************************************/
+
 body {
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   font-size: 1rem;
@@ -114,7 +120,9 @@ body {
 
 
 
-
+/*!***************************************************************
+                  SIDEBAR
+****************************************************************/
 .main-sidebar {
   top:0;
   left:0;
@@ -260,16 +268,51 @@ body {
 }
 
 
+/*!***************************************************************
+                  TABLES
+****************************************************************/
+.table {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	line-height: 20px;
+	color: #333;
+	max-width: 100%;
+	border-spacing: 0;
+	border-collapse: collapse;
+}
+
 .table th {
     padding: 0.75rem;
     vertical-align: middle;
     border-top: 1px solid #dee2e6;
 }
 
+.table tr {
+	border-top: 1px solid #dee2e6;
+	font-size: 1.05rem;
+}
+
+.table tr:hover {
+	background-color: #ccc;
+}
+
 .table td {
     padding: 0.5rem;
     vertical-align: middle;
     border-top: 1px solid #dee2e6;
+	font-size: 1.05rem;
+}
+
+.table td:hover {
+	cursor: pointer;
+}
+	
+.table a {
+	color: #000000 ;
+}
+	
+.table a:hover {
+	text-decoration: nounderline;
 }
 
 .row {
@@ -298,6 +341,92 @@ body {
   position: relative;
 
 }
+
+	#pool-coins td.coin {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		vertical-align: middle;
+		font-size: 1rem;
+	}
+	
+	#pool-coins img.coinimg {
+		width: 32px;
+		height: 32px;
+		vertical-align: middle;
+		margin-left: .7rem;
+		margin-right: .7rem;
+		display: inline-block;
+	}
+	
+
+	
+	#miner-workers tr.miner-workers {
+		background-color: #f4f6fa;
+		border-top: 1px solid #dee2e6;
+		font-size: 1.05rem;
+	}
+	
+	#miner-workers td {
+		border-top: 1px solid #dee2e6;
+		font-size: 1.05rem;
+	}
+	
+	#miners tr.miners {
+		background-color: #f4f6fa;
+		border-top: 1px solid #dee2e6;
+		font-size: 1.05rem;
+	}
+	
+	#miners td {
+		border-top: 1px solid #dee2e6;
+		font-size: 1.05rem;
+	}
+	
+	#blocks tr.blocks {
+		background-color: #f4f6fa;
+		border-top: 1px solid #dee2e6;
+		font-size: 1.05rem;
+	}
+	
+	#blocks td {
+		border-top: 1px solid #dee2e6;
+		font-size: 1.05rem;
+	}
+	
+	#payments tr.payments {
+		background-color: #f4f6fa;
+		border-top: 1px solid #dee2e6;
+		font-size: 1.05rem;
+	}
+	
+	#payments td {
+		border-top: 1px solid #dee2e6;
+		font-size: 1.05rem;
+	}
+	
+	#pool-config tr.pool-config {
+		background-color: #f4f6fa;
+		border-top: 1px solid #dee2e6;
+		font-size: 1.05rem;
+	}
+	
+	#pool-config td {
+		border-top: 1px solid #dee2e6;
+		font-size: 1.05rem;
+	}
+	
+	#miner-config tr.miner-config {
+		background-color: #f4f6fa;
+		border-top: 1px solid #dee2e6;
+		font-size: 1.05rem;
+	}
+	
+	#miner-config td {
+		border-top: 1px solid #dee2e6;
+		font-size: 1.05rem;
+	}
+	
 
 /*!***************************************************************
   FOOTER - Index & Pool footer
@@ -352,8 +481,6 @@ body {
   color: #fff;
 }
 
-
-
 *,
 *::before,
 *::after {
@@ -362,7 +489,7 @@ body {
 
 
 /*!***************************************************************
-    CARD - card & info box 
+                 CARD - card & info box 
 ****************************************************************/
 .info-box {
  display:block;
@@ -782,6 +909,29 @@ div.card-chart {
 		transform:translate(-230px, 0)
 	}
 	
+	.table th {
+		padding: 0.75rem;
+		vertical-align: middle;
+		border-top: 1px solid #dee2e6;
+	}
+
+	.table tr {
+		border-top: 1px solid #dee2e6;
+		font-size: 0.75rem;
+	}
+
+	.table tr:hover {
+		background-color: #ccc;
+	}
+
+	.table td {
+		padding: 0.3rem;
+		vertical-align: middle;
+		border-top: 1px solid #dee2e6;
+		font-size: 0.75rem;
+	}
+
+	
 }
 
 
@@ -799,6 +949,14 @@ div.card-chart {
 		background-color:#ecf0f5;
 		z-index:800
 	}
+	
+	.table td {
+		padding: 0.2rem;
+		vertical-align: middle;
+		border-top: 1px solid #dee2e6;
+		font-size: 0.9rem;
+	}
+
 	
 	/* Force table to not be like tables anymore */
 	#pool-coins table, thead, tbody, th, td, tr { 
@@ -831,6 +989,15 @@ div.card-chart {
 		padding-right: 10px; 
 		white-space: nowrap;
 		vertical-align: middle;
+	}
+	
+	#pool-coins img.coinimg {
+		width: 25px;
+		height: 25px;
+		vertical-align: middle;
+		margin-left: .2rem;
+		margin-right: .2rem;
+		display: inline-block;
 	}
 	
 	/*
