@@ -169,8 +169,8 @@ function loadHomePage() {
 		var coinName = value.coin.name;
 		if (typeof coinName === "undefined" || coinName === null) {coinName = value.coin.type;} 
         		
-		poolCoinTableTemplate += "<tr class='coin-table-row' href='#" + value.id.toLowerCase() + "'>";
-		poolCoinTableTemplate += "<td class='coin'><a href='#" + value.id.toLowerCase() + "'<span>" + coinLogo + coinName + " (" + value.coin.type.toUpperCase() + ") </span></a></td>";
+		poolCoinTableTemplate += "<tr class='coin-table-row' href='#" + value.id + "'>";
+		poolCoinTableTemplate += "<td class='coin'><a href='#" + value.id + "'<span>" + coinLogo + coinName + " (" + value.coin.type.toUpperCase() + ") </span></a></td>";
 		poolCoinTableTemplate += "<td class='algo'>" + value.coin.algorithm + "</td>";
 		poolCoinTableTemplate += "<td class='miners'>" + value.poolStats.connectedMiners + "</td>";
 		poolCoinTableTemplate += "<td class='pool-hash'>" + _formatter(value.poolStats.poolHashrate, 5, "H/s") + "</td>";
@@ -615,7 +615,7 @@ function loadStatsChart() {
         connectedWorkers.push(value.connectedWorkers);
       });
 	  
-	  var dataPoolHash          = {labels: labels,series: [poolHashRate]};
+      var dataPoolHash          = {labels: labels,series: [poolHashRate]};
       var dataNetworkHash       = {labels: labels,series: [networkHashRate]};
       var dataNetworkDifficulty = {labels: labels,series: [networkDifficulty]};
       var dataMiners            = {labels: labels,series: [connectedMiners,connectedWorkers]};
