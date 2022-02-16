@@ -23,21 +23,21 @@
 
 
 // read WebURL from current browser
-var WebURL         = window.location.protocol + "//" + window.location.hostname + "/";  // Website URL is:  https://domain.com/
+var WebURL         = "http://www.stratum.farm";
 // WebURL correction if not ends with /
 if (WebURL.substring(WebURL.length-1) != "/")
 {
-	WebURL = WebURL + "/";
-	console.log('Corrected WebURL, does not end with / -> New WebURL : ', WebURL);
+        WebURL = WebURL + "/";
+        console.log('Corrected WebURL, does not end with / -> New WebURL : ', WebURL);
 }
-var API            = WebURL + "api/";   						// API address is:  https://domain.com/api/
+var API            = "https://pool.stratum.farm:8443/" + "api/";
 // API correction if not ends with /
 if (API.substring(API.length-1) != "/")
 {
-	API = API + "/";
-	console.log('Corrected API, does not end with / -> New API : ', API);
+        API = API + "/";
+        console.log('Corrected API, does not end with / -> New API : ', API);
 } 
-var stratumAddress = window.location.hostname;           				// Stratum address is:  domain.com
+var stratumAddress = "pool.stratum.farm";
 
 
 
