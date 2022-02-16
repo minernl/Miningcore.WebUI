@@ -1,0 +1,12 @@
+---
+version: "3.7"
+services:
+  nginx:
+    image: linuxserver/nginx
+    environment:
+      - PUID=1000
+      - PGID=1000
+    volumes:
+      - ./:/config/www/
+    ports:
+      - 8080:80
