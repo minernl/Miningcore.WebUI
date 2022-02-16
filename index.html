@@ -7,18 +7,11 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <meta name="msapplication-TileImage" content="img/pool-icon.png">
   
-  <title>Miningcore.WebUI</title>
+  <title>[̲̅$̲̅(̲̅ιοο̲̅)̲̅$̲̅] Stratum.Farm [̲̅$̲̅(̲̅ιοο̲̅)̲̅$̲̅]</title>
   
   <link rel="apple-touch-icon" href="img/pool-icon.png">  
   <link rel="apple-touch-icon" sizes="76x76" href="img/pool-icon.png">
-  
-  <!-- 
-    AdminLTE & Skins. We have chosen the skin-purple for this website page. 
-    However, you can choose any other skin from the css/skins/ folder. 
-	Make sure you apply the skin class to the body tag so the changes take effect. 
-  -->
 
-  
   <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">-->
   <link rel="stylesheet" href="css/bootstrap.css">
   <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">-->
@@ -57,7 +50,7 @@ Apply one or more of the following classes to get the desired effect
 |               | skin-green                              |
 ===========================================================
 -->
-<body class="skin-purple" style="height: auto; min-height: 100%;" onhashchange="loadIndex()">
+<body class="skin-black" style="height: auto; min-height: 100%;" onhashchange="loadIndex()">
 
 
 <!-- COIN TABLE TEMPLATE -->
@@ -162,7 +155,7 @@ Apply one or more of the following classes to get the desired effect
 
       <nav class="navbar" >
         <a>  </a>
-        <span class="header-text"><b>Miningcore</b> - making mining easy</span>
+        <span class="header-text"><b>Stratum.Farm</b> - Where you farm your Coins</span>
         <!-- Navbar Right Menu -->
         <div class="navbar-custom-menu">
           <ul class="nav navbar-nav">
@@ -179,15 +172,16 @@ Apply one or more of the following classes to get the desired effect
 <!-- INDEX HOME PAGE -->
 	<div class="page page-index">
 		<section class="content-header">
-			<h1>MININGCORE<small>coins to mine</small></h1>
+			<h1>Stratum.Farm<small>coins to mine</small></h1>
 		</section>
 		<div class="content container-fluid " >	
 			
 			<div class="col-12">
 				<div class="card card-shadow card-body">
-					<center><h5> Welcome to Miningcore Mining Pool</h5></center>
+					<center><h5> Welcome to Straum.Farm mining pools</br>ATTENTION: This Pool is in Alpha Stadium! Use on your own risk!</h5></center>
 					<hr>
-					<p>Low fee, high performance and a nice design. </br> Pick a coin, connect you miner and make some coins.</p>
+					<p>Low fee, low latency, high performance. </br> 
+            Pick a coin, connect you miner and make some coins.</p>
 					</br>
 				</div>
 			</div>
@@ -216,13 +210,23 @@ Apply one or more of the following classes to get the desired effect
 					</div>
 				</div>
 			</div>
-			
+    </br>
+    <div class="col-12">
+      <div class="card card-shadow card-body">
+          <p>With using our pools you agree to our Terms of Service: </p></br> 
+          <p>- The public IP adress your miners are using is stored for 14 days. We will only use this information for troubleshooting</p></br>
+          <p>- we will store your wallet address you submit to our pools to be able to perform payouts</p></br>
+          <p>- as the pool is in alpha state we can't guarantee a fair payout in case of technical problems. In case of emergency the funds will be splitted equially to each wallet we find in the database since last payout</p>
+          <p>This terms of service are not final. An updated version will follow.</p>
+        </br>
+      </div>
+    </div>
 		</div>
 	</div>	
 
 <!-- INDEX FOOTER --> 
     <footer class="main-index-footer">
-      <strong><a target="_blank" href="https://github.com/minernl/Miningcore.WebUI">&copy; <script>document.write(new Date().getFullYear())</script> made by COINStoMINE.eu</a> - Version 1.02</strong>
+      <strong><a target="_blank" href="https://stratum.farm">&copy; <script>document.write(new Date().getFullYear())</script> operated by Statum.Farm</a> - Version 1.0</strong>
     </footer>
 
   </div>
@@ -248,7 +252,7 @@ Apply one or more of the following classes to get the desired effect
       <nav class="navbar navbar-static-top" role="navigation">
         <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button"><i class="fas fa-bars"></i></a>
 
-        <span class="header-text"><b>Miningcore</b> - making mining easy</span>
+        <span class="header-text"><b>Stratum.Farm</b> - Where you farm your Coins</span>
 	  
         <!-- Navbar Right Menu -->
         <div class="navbar-custom-menu">
@@ -867,7 +871,7 @@ Apply one or more of the following classes to get the desired effect
   </div> 
 
   <footer class="main-footer">
-	<strong><a target="_blank" href="https://github.com/minernl/Miningcore.WebUI">&copy; <script>document.write(new Date().getFullYear())</script> made by COINStoMINE.eu</a></strong>    
+	<strong><a target="_blank" href="https://stratum.farm">&copy; <script>document.write(new Date().getFullYear())</script> operated by Statum.Farm</a> - Version 1.0</strong>    
   </footer>
  
   </div> <!-- end main-pool -->
@@ -876,7 +880,7 @@ Apply one or more of the following classes to get the desired effect
 
   <!-- Miningcore JS -->
   <script type="text/javascript">
-    $(document).ready(function() {
+    $(document).ready(function() {connectPoolConfig
       loadIndex();
     });
   </script>

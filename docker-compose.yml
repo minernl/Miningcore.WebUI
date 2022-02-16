@@ -1,12 +1,18 @@
 ---
 version: "3.7"
 services:
-  nginx:
-    image: linuxserver/nginx
-    environment:
-      - PUID=1000
-      - PGID=1000
+  web:
+    image: nginx:1.21.6
     volumes:
-      - ./:/config/www/
+      - ./webui:/usr/share/nginx/html
+      - ./stratumfarm.crt:/etc/ssl/private/stratumfarm.crt
+      - ./stratumfarm.key:/etc/ssl/private/stratumfarm.key
+      - ./ssl.conf:/etc/nginx/conf.d/ssl.conf
+      - ./default.conf:/etc/nginx/conf.d/default.conf
     ports:
-      - 8080:80
+      - 443:443
+      - 80:80 #optional
+    restart: unless-stopped
+    environment:
+      - NGINX_HOST=www.stratum.farm
+      - NGINX_PORT=80
