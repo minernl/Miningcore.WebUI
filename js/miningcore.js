@@ -23,21 +23,22 @@
 
 
 // read WebURL from current browser
-var WebURL         = window.location.protocol + "//" + window.location.hostname + "/";  // Website URL is:  https://domain.com/
+var WebURL         = "http://ergo.mattsnoby.com/";
 // WebURL correction if not ends with /
 if (WebURL.substring(WebURL.length-1) != "/")
 {
 	WebURL = WebURL + "/";
 	console.log('Corrected WebURL, does not end with / -> New WebURL : ', WebURL);
 }
-var API            = WebURL + "api/";   						// API address is:  https://domain.com/api/
+//var API            = WebURL + "api/";   						// API address is:  https://domain.com/api/
+var API            = "https://miningcore-api.mattsnoby.com/api/";
 // API correction if not ends with /
 if (API.substring(API.length-1) != "/")
 {
 	API = API + "/";
 	console.log('Corrected API, does not end with / -> New API : ', API);
 } 
-var stratumAddress = window.location.hostname;           				// Stratum address is:  domain.com
+var stratumAddress = "ergo.mattsnoby.com:3056";
 
 
 
@@ -172,6 +173,7 @@ function loadHomePage() {
 		poolCoinTableTemplate += "<tr class='coin-table-row' href='#" + value.id + "'>";
 		poolCoinTableTemplate += "<td class='coin'><a href='#" + value.id + "'<span>" + coinLogo + coinName + " (" + value.coin.type.toUpperCase() + ") </span></a></td>";
 		poolCoinTableTemplate += "<td class='algo'>" + value.coin.algorithm + "</td>";
+		poolCoinTableTemplate += "<td class='paytype'>" + value.paymentProcessing.payoutScheme + "</td>";
 		poolCoinTableTemplate += "<td class='miners'>" + value.poolStats.connectedMiners + "</td>";
 		poolCoinTableTemplate += "<td class='pool-hash'>" + _formatter(value.poolStats.poolHashrate, 5, "H/s") + "</td>";
 		poolCoinTableTemplate += "<td class='fee'>" + value.poolFeePercent + " %</td>";
@@ -270,8 +272,8 @@ function loadMinersPage() {
       if (data.length > 0) {
         $.each(data, function(index, value) {
           minerList += "<tr>";
-          //minerList +=   "<td>" + value.miner + "</td>";
-		  minerList +=   '<td>' + value.miner.substring(0, 12) + ' &hellip; ' + value.miner.substring(value.miner.length - 12) + '</td>';
+          minerList +=   "<td>" + value.miner + "</td>";
+		    //minerList +=   '<td>' + value.miner.substring(0, 12) + ' &hellip; ' + value.miner.substring(value.miner.length - 12) + '</td>';
           //minerList += '<td><a href="' + value.minerAddressInfoLink + '" target="_blank">' + value.miner.substring(0, 12) + ' &hellip; ' + value.miner.substring(value.miner.length - 12) + '</td>';
           minerList += "<td>" + _formatter(value.hashrate, 5, "H/s") + "</td>";
           minerList += "<td>" + _formatter(value.sharesPerSecond, 5, "S/s") + "</td>";
