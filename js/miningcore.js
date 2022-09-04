@@ -41,7 +41,6 @@ var stratumAddress = "ergo.mattsnoby.com:3056";
 // --------------------------------------------------------------------------------------------
 // no need to change anything below here
 // --------------------------------------------------------------------------------------------
-console.log('MiningCore.WebUI : ', WebURL);		                      // Returns website URL
 console.log('API address used : ', API);                                      // Returns API URL
 console.log('Stratum address  : ', "stratum+tcp://" + stratumAddress + ":");  // Returns Stratum URL
 console.log('Page Load        : ', window.location.href);                     // Returns full URL
@@ -310,6 +309,7 @@ function loadBlocksPage() {
 
           blockList += "<tr>";
           blockList += "<td>" + createDate + "</td>";
+          blockList += "<td>" + value.miner.substring(value.miner.length -12) + "</td>";
           blockList += "<td><a href='" + value.infoLink + "' target='_blank'>" + value.blockHeight + "</a></td>";
           if (typeof value.effort !== "undefined") {
             blockList += "<td class='" + effortClass + "'>" + effort + "%</td>";
