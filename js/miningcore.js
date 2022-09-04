@@ -307,9 +307,11 @@ function loadBlocksPage() {
             effortClass = "effort4";
           }
 
+          var url = "?#" + currentPool + "/dashboard?address=" + value.miner;
+
           blockList += "<tr>";
           blockList += "<td>" + createDate + "</td>";
-          blockList += "<td>" + value.miner.substring(value.miner.length -12) + "</td>";
+          blockList += "<td><a href=" +url +">" + value.miner.substring(value.miner.length -12) +"</a>" + "</td>";
           blockList += "<td><a href='" + value.infoLink + "' target='_blank'>" + value.blockHeight + "</a></td>";
           if (typeof value.effort !== "undefined") {
             blockList += "<td class='" + effortClass + "'>" + effort + "%</td>";
