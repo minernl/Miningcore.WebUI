@@ -23,7 +23,7 @@
 
 
 // read WebURL from current browser
-var WebURL         = "http://ergo.mattsnoby.com/";
+var WebURL         = "http://ergotest.mattsnoby.com/";
 // WebURL correction if not ends with /
 if (WebURL.substring(WebURL.length-1) != "/")
 {
@@ -263,39 +263,38 @@ function loadDashboardPage() {
   }
 }
 
-
 // Load MINERS page content
 function loadMinersPage() {
-  return $.ajax(API + "pools/" + currentPool + "/miners?page=0&pagesize=20")
-    .done(function(data) {
-      var minerList = "";
-      if (data.length > 0) {
-        $.each(data, function(index, value) {
-          minerList += "<tr>";
-          minerList +=   "<td>" + value.miner + "</td>";
-		    //minerList +=   '<td>' + value.miner.substring(0, 12) + ' &hellip; ' + value.miner.substring(value.miner.length - 12) + '</td>';
-          //minerList += '<td><a href="' + value.minerAddressInfoLink + '" target="_blank">' + value.miner.substring(0, 12) + ' &hellip; ' + value.miner.substring(value.miner.length - 12) + '</td>';
-          minerList += "<td>" + _formatter(value.hashrate, 5, "H/s") + "</td>";
-          minerList += "<td>" + _formatter(value.sharesPerSecond, 5, "S/s") + "</td>";
-          minerList += "</tr>";
-        });
-      } else {
-        minerList += '<tr><td colspan="4">No miner connected</td></tr>';
-      }
-      $("#minerList").html(minerList);
-    })
-    .fail(function() {
-      $.notify(
-        {
-          message: "Error: No response from API.<br>(loadMinersList)"
-        },
-        {
-          type: "danger",
-          timer: 3000
-        }
-      );
-    });
-}
+   return $.ajax(API + "pools/" + currentPool + "/miners?page=0&pagesize=20")
+     .done(function(data) {
+       var minerList = "";
+       if (data.length > 0) {
+         $.each(data, function(index, value) {
+           var url = "?#" + currentPool + "/dashboard?address=" + value.miner;
+           console.log(url)
+           minerList += "<tr>";
+           minerList += "<td>" + "<a href=" +url + ">" + value.miner +"</a>"  + "</td>";
+           minerList += "<td>" + _formatter(value.hashrate, 5, "H/s") + "</td>";
+           minerList += "<td>" + _formatter(value.sharesPerSecond, 5, "S/s") + "</td>";
+           minerList += "</tr>";
+         });
+       } else {
+         minerList += '<tr><td colspan="4">No miner connected</td></tr>';
+       }
+       $("#minerList").html(minerList);
+     })
+     .fail(function() {
+       $.notify(
+         {
+           message: "Error: No response from API.<br>(loadMinersList)"
+         },
+         {
+           type: "danger",
+           timer: 3000
+         }
+       );
+     });
+ }
 
 
 // Load BLOCKS page content
@@ -306,7 +305,7 @@ function loadBlocksPage() {
       if (data.length > 0) {
         $.each(data, function(index, value) {
 		  var createDate = convertLocalDateToUTCDate(new Date(value.created),false);
-          var effort = Math.round(value.effort * 100);
+          var effort = Math.round(value.effort * 10000);
           var effortClass = "";
           if (effort < 30) {
             effortClass = "effort1";
